@@ -20,18 +20,3 @@ A push-button controlled DC motor firmware written in C++ using PlatformIO.
 3. Click **Build** (check for errors).
 4. Click **Upload** to flash the firmware.
 5. Open the **Serial Monitor** at 9600 baud to view button states.
-
-## Folder Structure
-PBMotorControl/
-├── platformio.ini      # Project configuration file
-├── src/                # Application entry point (main.cpp)
-├── include/            # Shared configuration headers (Config.h)
-├── lib/                # Reusable components
-│   ├── Button/
-│   │   ├── Button.h
-│   │   └── Button.cpp
-│   └── Motor/
-│       ├── Motor.h
-│       └── Motor.cpp
-├── .gitignore          # Ignored files for Git
-└── README.md           # Project documentation
