@@ -1,0 +1,11 @@
+#.gitignore is a file in the root directory of a Git repository that specifies which files and directories should be ignored by Git version control.
+
+#.pio is a directory created by PlatformIO, an open-source ecosystem for IoT development. It contains build files, libraries, and other temporary files generated during the development process.
+.pio/
+
+#.vscode is a directory created by Visual Studio Code, a popular code editor. It contains workspace-specific settings, extensions, and other configuration files.
+.vscode/
+
+# Ignore the README.md files in the include and lib directories
+include/README.md
+lib/*/README.md
