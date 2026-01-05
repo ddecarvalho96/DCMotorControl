@@ -1,5 +1,5 @@
 #pragma once
 
-// Pin definitions for the button and motor
-constexpr int SWITCH_PIN =2;
+// Pin definitions for the potentiometer and motor
 constexpr int MOTOR_PIN =9;
+constexpr int POTENTIOMETER_PIN =A0;

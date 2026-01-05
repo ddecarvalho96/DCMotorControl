@@ -1,18 +1,18 @@
-# PBMotorControl
+# DCMotorControl v2 – PWM Motor Control via Potentiometer
 
-A push-button controlled DC motor firmware written in C++ using PlatformIO.
+A variable-speed DC motor firmware written in C++ using PlatformIO, controlled via a potentiometer.
 
 ## Hardware
 - Arduino UNO R3
 - DC Motor
-- Push-button with pull-down resistor (1K)
+- 10 kΩ Potentiometer
 - Diode (1N4007)
 - MOSFET (IRF520)
 
 ## Features
-- Motor control via push-button (active HIGH)
-- Using C++ classes (`Motor`, `Button`)
-- Serial output for debugging and monitoring button state
+- Motor speed controlled via potentiometer (analog input → PWM)
+- Using C++ classes (`Motor`, `Potentiometer`)
+- Serial output for debugging and monitoring potentiometer values
 
 ## Build & Upload
 1. Open this project in **VS Code** with **PlatformIO** installed.

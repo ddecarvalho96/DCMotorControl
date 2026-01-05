@@ -1,12 +1,11 @@
 #include <Arduino.h>
 #include "Config.h"
-#include "Button.h"
 #include "Motor.h"
+#include "Potentiometer.h"
 
 //Create hardware objects using C++ classes
-Button button(SWITCH_PIN); 
 Motor motor(MOTOR_PIN);
-
+Potentiometer potentiometer(POTENTIOMETER_PIN);
 /** 
  * Setup function runs once at startup 
  * - Initializes Serial monitoring
@@ -14,25 +13,23 @@ Motor motor(MOTOR_PIN);
 */
 void setup() {
   Serial.begin(9600); // Start serial communication at 9600 baud rate
-  button.init(); 
   motor.init();
+  potentiometer.init();
 }
 
 /** 
- * Loop function runs continuously after setup
- * - Checks Button state
- * - Turns Motor on/off based on Button state
- * - Prints Motor state to Serial monitor
+ * Potentiometer value is read and mapped to PWM range (0-255)
+ * Motor speed is adjusted based on potentiometer reading
+ * Serial monitor outputs the current PWM value
 */
 void loop() {
-  if (button.isPressed()) {
-    motor.on();
-    Serial.println("Motor is ON");
-  } else {
-    motor.off();
-    Serial.println("Motor is OFF");
-  }
+  int potValue = potentiometer.readValue();
+  uint8_t pwm = map(potValue, 0, 1023, 0, 255);
 
-// Add a small delay to avoid overwhelming the Serial monitor.
-  delay(500);
+  motor.setSpeed(pwm);
+
+  Serial.print("Motor PWM: ");
+  Serial.println(pwm);
+
+  delay(200);
 }
